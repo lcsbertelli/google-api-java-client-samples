@@ -60,9 +60,17 @@ public class DriveSample {
    * blank, the application will log a warning. Suggested format is "MyCompany-ProductName/1.0".
    */
   private static final String APPLICATION_NAME = "UFF-AppCargaTupi/1.0";
-
-  private static final String UPLOAD_FILE_PATH = "C:\\upload_tupi";
-  private static final String DIR_FOR_DOWNLOADS = "C:\\download_tupi";
+  
+  //##################
+  //private static final String DIR_USUARIO_HOME = System.getProperty("user.home");
+  //private static final String CAMINHO_UPLOAD = DIR_USUARIO_HOME + "\\upload_tupi";
+  //#######################
+  
+  //private static final String UPLOAD_FILE_PATH = "C:\\Users\\lucas\\upload_tupi";
+  //private static final String UPLOAD_FILE_PATH = CAMINHO_UPLOAD;
+  private static final String UPLOAD_FILE_PATH =  "C:\\temp\\upload_tupi";
+  
+  private static final String DIR_FOR_DOWNLOADS = "C:\\Users\\lucas\\download_tupi";
   private static final java.io.File UPLOAD_FILE = new java.io.File(UPLOAD_FILE_PATH);
 
   /** Directory to store user credentials. */
@@ -111,6 +119,7 @@ public class DriveSample {
         "Please enter the upload file path and download directory in %s", DriveSample.class);
 
     try {
+      //Teste verficiar conteudo  System.out.println(CAMINHO_UPLOAD);
       httpTransport = GoogleNetHttpTransport.newTrustedTransport();
       dataStoreFactory = new FileDataStoreFactory(DATA_STORE_DIR);
       // authorization
