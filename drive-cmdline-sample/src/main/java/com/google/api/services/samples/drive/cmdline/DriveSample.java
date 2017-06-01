@@ -59,10 +59,10 @@ public class DriveSample {
    * Be sure to specify the name of your application. If the application name is {@code null} or
    * blank, the application will log a warning. Suggested format is "MyCompany-ProductName/1.0".
    */
-  private static final String APPLICATION_NAME = "";
+  private static final String APPLICATION_NAME = "UFF-AppCargaTupi/1.0";
 
-  private static final String UPLOAD_FILE_PATH = "Enter File Path";
-  private static final String DIR_FOR_DOWNLOADS = "Enter Download Directory";
+  private static final String UPLOAD_FILE_PATH = "C:\\upload_tupi";
+  private static final String DIR_FOR_DOWNLOADS = "C:\\download_tupi";
   private static final java.io.File UPLOAD_FILE = new java.io.File(UPLOAD_FILE_PATH);
 
   /** Directory to store user credentials. */
