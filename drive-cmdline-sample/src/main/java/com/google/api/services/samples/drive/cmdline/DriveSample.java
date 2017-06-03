@@ -63,7 +63,10 @@ public class DriveSample {
   
   //##################
   private static final String DIR_USUARIO_HOME = System.getProperty("user.home");
-  private static final String CAMINHO_UPLOAD = DIR_USUARIO_HOME + "\\upload_tupi\\imagem_teste_upload.JPG";
+  //private static final String CAMINHO_UPLOAD = DIR_USUARIO_HOME + "\\upload_tupi\\imagem_teste_upload.JPG";
+  //private static final String CAMINHO_UPLOAD = DIR_USUARIO_HOME + "\\upload_tupi\\pingo_e_estrelinha.JPG";
+  private static final String CAMINHO_UPLOAD = DIR_USUARIO_HOME + "\\upload_tupi\\DB_Tupi_2014_09_05.dat";
+
   //#######################  
   private static final String UPLOAD_FILE_PATH = CAMINHO_UPLOAD;
   
@@ -160,7 +163,8 @@ public class DriveSample {
     File fileMetadata = new File();
     fileMetadata.setTitle(UPLOAD_FILE.getName());
 
-    FileContent mediaContent = new FileContent("image/jpeg", UPLOAD_FILE);
+    //FileContent mediaContent = new FileContent("image/jpeg", UPLOAD_FILE);
+    FileContent mediaContent = new FileContent("[*/*]", UPLOAD_FILE);
 
     Drive.Files.Insert insert = drive.files().insert(fileMetadata, mediaContent);
     MediaHttpUploader uploader = insert.getMediaHttpUploader();
@@ -187,11 +191,13 @@ public class DriveSample {
       throw new IOException("Unable to create parent directory");
     }
     OutputStream out = new FileOutputStream(new java.io.File(parentDir, uploadedFile.getTitle()));
+    //OutputStream out = new FileOutputStream(new java.io.File(parentDir, "teste123"));
 
     MediaHttpDownloader downloader =
         new MediaHttpDownloader(httpTransport, drive.getRequestFactory().getInitializer());
     downloader.setDirectDownloadEnabled(useDirectDownload);
     downloader.setProgressListener(new FileDownloadProgressListener());
     downloader.download(new GenericUrl(uploadedFile.getDownloadUrl()), out);
+    
   }
 }
